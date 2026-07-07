@@ -564,13 +564,19 @@ function initMobileMenu() {
   const openMenu = () => {
     toggle.classList.add('active');
     overlay.classList.add('active');
+    document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
   };
 
   const closeMenu = () => {
     toggle.classList.remove('active');
     overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Toggle mobile menu');
   };
 
   toggle.addEventListener('click', () => {
